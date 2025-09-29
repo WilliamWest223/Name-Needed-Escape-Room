@@ -3,9 +3,9 @@
 Escape Nexus is a web-based cooperative escape-room platform. Players join a session, explore themed rooms, inspect items, solve puzzles, and unlock doors to advance before the timer expires. This repo contains the documentation (spec + UML), JSON content fixtures that mirror the UML, and (when added) the application code.
 
 ## Repo Map
-- `/docs` — Specification + UML Class & Sequence diagrams in submission-ready PDF format.
-- `/json` — Content data (each file has ≥ 2 objects and mirrors fields in the UML).
-- `/src` — (placeholder) application code.
+- `/docs` — Specification 
+- `/json` — Content data 
+- `/src` — (placeholder) application code 
 - `/tests` — (placeholder) automated tests.
 
 ## How to Use the Docs
