@@ -1,0 +1,14 @@
+[
+  {
+    "id": "item-bronze-key",
+    "name": "Bronze Key",
+    "description": "A heavy key with owl engravings.",
+    "portable": true
+  },
+  {
+    "id": "item-oil-lamp",
+    "name": "Oil Lamp",
+    "description": "Illuminates dark corners.",
+    "portable": true
+  }
+]

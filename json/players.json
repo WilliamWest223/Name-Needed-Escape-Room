@@ -1,0 +1,16 @@
+[
+  {
+    "id": "player-david",
+    "username": "David",
+    "currentRoom": "room-antechamber",
+    "inventory": [
+      "item-oil-lamp"
+    ]
+  },
+  {
+    "id": "player-emily",
+    "username": "Emily",
+    "currentRoom": "room-antechamber",
+    "inventory": []
+  }
+]

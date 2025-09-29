@@ -1,0 +1,27 @@
+[
+  {
+    "id": "puzzle-sun-dial",
+    "title": "Sun Dial",
+    "description": "Align markers to cardinal points.",
+    "solved": false,
+    "hintCount": 0,
+    "solution": {
+      "cardinals": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ]
+    }
+  },
+  {
+    "id": "puzzle-glyph-lock",
+    "title": "Glyph Lock",
+    "description": "Enter the three rune sequence.",
+    "solved": false,
+    "hintCount": 0,
+    "solution": {
+      "code": "OWL"
+    }
+  }
+]

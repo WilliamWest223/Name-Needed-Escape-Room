@@ -1,0 +1,23 @@
+[
+  {
+    "id": "door-north-arch",
+    "name": "North Archway",
+    "connects": [
+      "room-antechamber",
+      "room-inner-sanctum"
+    ],
+    "locked": true,
+    "keyCode": "OWL",
+    "status": "LOCKED"
+  },
+  {
+    "id": "door-stone-slab",
+    "name": "Stone Slab",
+    "connects": [
+      "room-inner-sanctum"
+    ],
+    "locked": false,
+    "keyCode": "",
+    "status": "CLOSED"
+  }
+]

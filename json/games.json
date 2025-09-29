@@ -1,0 +1,26 @@
+[
+  {
+    "id": "game-ancient-crypt",
+    "title": "Ancient Crypt",
+    "description": "Unearth a forgotten tomb and escape before time runs out.",
+    "difficulty": "Medium",
+    "timeLimit": 40,
+    "maxPlayers": 4,
+    "rooms": [
+      "room-antechamber",
+      "room-inner-sanctum"
+    ]
+  },
+  {
+    "id": "game-cyber-heist",
+    "title": "Cyber Heist",
+    "description": "Infiltrate a megacorp vault and exfiltrate the data.",
+    "difficulty": "Hard",
+    "timeLimit": 45,
+    "maxPlayers": 4,
+    "rooms": [
+      "room-lobby",
+      "room-vault"
+    ]
+  }
+]

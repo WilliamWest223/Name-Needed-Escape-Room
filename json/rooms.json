@@ -1,0 +1,28 @@
+[
+  {
+    "id": "room-antechamber",
+    "name": "Antechamber",
+    "description": "Dusty stone hall with murals.",
+    "puzzles": [
+      "puzzle-sun-dial"
+    ],
+    "items": [
+      "item-bronze-key"
+    ],
+    "doors": [
+      "door-north-arch"
+    ]
+  },
+  {
+    "id": "room-inner-sanctum",
+    "name": "Inner Sanctum",
+    "description": "A sealed chamber with inscriptions.",
+    "puzzles": [
+      "puzzle-glyph-lock"
+    ],
+    "items": [],
+    "doors": [
+      "door-stone-slab"
+    ]
+  }
+]
