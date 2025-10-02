@@ -1,0 +1,34 @@
+[
+    {
+      "id": "player-david",
+      "username": "David",
+      "currentRoom": "room-antechamber",
+      "inventory": [
+        "item-oil-lamp"
+      ]
+    },
+    {
+      "id": "player-emily",
+      "username": "Emily",
+      "currentRoom": "room-antechamber",
+      "inventory": []
+    },
+    {
+        "id": "session-001",
+        "gameId": "game-ancient-crypt",
+        "playerIds": [
+          "player-david",
+          "player-emily"
+        ],
+        "startTime": "2025-09-28T19:00:00Z",
+        "state": "ACTIVE"
+      },
+      {
+        "id": "session-002",
+        "gameId": "game-cyber-heist",
+        "playerIds": [],
+        "startTime": "2025-09-28T19:05:00Z",
+        "state": "PENDING"
+      }
+  ]
+  
