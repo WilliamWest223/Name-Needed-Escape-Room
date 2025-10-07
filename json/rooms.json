@@ -1,113 +1,113 @@
-[
-  {
-    "id": "room-antechamber",
-    "name": "Antechamber",
-    "description": "Dusty stone hall with murals.",
-    "puzzles": [
-      "puzzle-sun-dial"
-    ],
-    "items": [
-      "item-bronze-key"
-    ],
-    "doors": [
-      "door-north-arch"
-    ]
-  },
-  {
-    "id": "room-inner-sanctum",
-    "name": "Inner Sanctum",
-    "description": "A sealed chamber with inscriptions.",
-    "puzzles": [
-      "puzzle-glyph-lock"
-    ],
-    "items": [],
-    "doors": [
-      "door-stone-slab"
-    ]
-  },
-  {
-    "id": "door-north-arch",
-    "name": "North Archway",
-    "connects": [
-      "room-antechamber",
-      "room-inner-sanctum"
-    ],
-    "locked": true,
-    "keyCode": "OWL",
-    "status": "LOCKED"
-  },
-  {
-    "id": "door-stone-slab",
-    "name": "Stone Slab",
-    "connects": [
-      "room-inner-sanctum"
-    ],
-    "locked": false,
-    "keyCode": "",
-    "status": "CLOSED"
-  },
-  {
-    "id": "game-ancient-crypt",
-    "title": "Ancient Crypt",
-    "description": "Unearth a forgotten tomb and escape before time runs out.",
-    "difficulty": "Medium",
-    "timeLimit": 40,
-    "maxPlayers": 4,
-    "rooms": [
-      "room-antechamber",
-      "room-inner-sanctum"
-    ]
-  },
-  {
-    "id": "game-cyber-heist",
-    "title": "Cyber Heist",
-    "description": "Infiltrate a megacorp vault and exfiltrate the data.",
-    "difficulty": "Hard",
-    "timeLimit": 45,
-    "maxPlayers": 4,
-    "rooms": [
-      "room-lobby",
-      "room-vault"
-    ]
-  },
-  {
-    "id": "item-bronze-key",
-    "name": "Bronze Key",
-    "description": "A heavy key with owl engravings.",
-    "portable": true
-  },
-  {
-    "id": "item-oil-lamp",
-    "name": "Oil Lamp",
-    "description": "Illuminates dark corners.",
-    "portable": true
-  },
-  {
-    "id": "puzzle-sun-dial",
-    "title": "Sun Dial",
-    "description": "Align markers to cardinal points.",
-    "solved": false,
-    "hintCount": 0,
-    "solution": {
-      "cardinals": [
-        "N",
-        "E",
-        "S",
-        "W"
+{
+  "title": "BEST GAME",
+  "rooms": [
+    {
+      "name": "Antechamber",
+      "description": "Dusty stone hall with murals.",
+      "puzzles": [
+        "puzzle-sun-dial"
+      ],
+      "items": [
+        "item-bronze-key"
+      ],
+      "doors": [
+        "door-north-arch"
       ]
+    },
+    {
+      "name": "Inner Sanctum",
+      "description": "A sealed chamber with inscriptions.",
+      "puzzles": [
+        "puzzle-glyph-lock"
+      ],
+      "items": [],
+      "doors": [
+        "door-stone-slab"
+      ]
+    },
+    {
+      "name": "North Archway",
+      "connects": [
+        "room-antechamber",
+        "room-inner-sanctum"
+      ],
+      "locked": true,
+      "keyCode": "OWL",
+      "status": "LOCKED"
+    },
+    {
+      "id": "door-stone-slab",
+      "name": "Stone Slab",
+      "connects": [
+        "room-inner-sanctum"
+      ],
+      "locked": false,
+      "keyCode": "",
+      "status": "CLOSED"
+    },
+    {
+      "id": "game-ancient-crypt",
+      "title": "Ancient Crypt",
+      "description": "Unearth a forgotten tomb and escape before time runs out.",
+      "difficulty": "Medium",
+      "timeLimit": 40,
+      "maxPlayers": 4,
+      "rooms": [
+        "room-antechamber",
+        "room-inner-sanctum"
+      ]
+    },
+    {
+      "id": "game-cyber-heist",
+      "title": "Cyber Heist",
+      "description": "Infiltrate a megacorp vault and exfiltrate the data.",
+      "difficulty": "Hard",
+      "timeLimit": 45,
+      "maxPlayers": 4,
+      "rooms": [
+        "room-lobby",
+        "room-vault"
+      ]
+    },
+    {
+      "id": "item-bronze-key",
+      "name": "Bronze Key",
+      "description": "A heavy key with owl engravings.",
+      "portable": true
+    },
+    {
+      "id": "item-oil-lamp",
+      "name": "Oil Lamp",
+      "description": "Illuminates dark corners.",
+      "portable": true
+    },
+    {
+      "id": "puzzle-sun-dial",
+      "title": "Sun Dial",
+      "description": "Align markers to cardinal points.",
+      "solved": false,
+      "hintCount": 0,
+      "solution": {
+        "cardinals": [
+          "N",
+          "E",
+          "S",
+          "W"
+        ]
+      }
+    },
+    {
+      "id": "puzzle-glyph-lock",
+      "title": "Glyph Lock",
+      "description": "Enter the three rune sequence.",
+      "solved": false,
+      "hintCount": 0,
+      "solution": {
+        "code": "OWL"
+      }
+    },
+    {
+      "java.configuration.updateBuildConfiguration": "interactive"
     }
-  },
-  {
-    "id": "puzzle-glyph-lock",
-    "title": "Glyph Lock",
-    "description": "Enter the three rune sequence.",
-    "solved": false,
-    "hintCount": 0,
-    "solution": {
-      "code": "OWL"
-    }
-  },
-  {
-    "java.configuration.updateBuildConfiguration": "interactive"
-  }
-]
+  ]
+}
