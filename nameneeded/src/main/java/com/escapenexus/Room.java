@@ -99,7 +99,7 @@ public class Room {
 
     public boolean unlock(Item key) {
         if (!locked) {
-            return true;
+            return false;
         }
         if (keyRequired == null || key == null) {
             return false;

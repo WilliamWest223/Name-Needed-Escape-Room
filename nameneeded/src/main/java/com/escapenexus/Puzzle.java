@@ -64,11 +64,18 @@ public class Puzzle {
     }
 
     public boolean attempt(Object input) {
-        return false;
+        if (input == null) {
+            return false;
+        }
+        solved = true;
+        return true;
     }
 
     public String giveHint() {
-        return hints.isEmpty() ? null : hints.get(0);
+        if (hints.isEmpty()) {
+            return "No hints available.";
+        }
+        return hints.get(0);
     }
 
     public void reset() {

@@ -131,10 +131,30 @@ public class Game {
     }
 
     public Room advanceRoom() {
-        return rooms.stream()
-                .filter(room -> !room.isCleared())
-                .findFirst()
-                .orElse(null);
+        EscapeGame escapeGame = EscapeGame.getInstance();
+        User currentUser = escapeGame.getUser();
+        if (currentUser == null) {
+            return null;
+        }
+
+        Room currentRoom = currentUser.getCurrentRoom();
+        if (currentRoom == null) {
+            return rooms.isEmpty() ? null : rooms.get(0);
+        }
+
+        int index = rooms.indexOf(currentRoom);
+        if (index < 0) {
+            return rooms.isEmpty() ? null : rooms.get(0);
+        }
+
+        if (!currentRoom.isCleared()) {
+            return currentRoom;
+        }
+
+        if (index + 1 < rooms.size()) {
+            return rooms.get(index + 1);
+        }
+        return currentRoom;
     }
 
     @Override

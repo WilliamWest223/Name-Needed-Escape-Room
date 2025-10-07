@@ -1,5 +1,6 @@
 package com.escapenexus;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class EscapeGame {
@@ -35,9 +36,10 @@ public final class EscapeGame {
     }
 
     public Puzzle getNextPuzzle() {
-        return Optional.ofNullable(game)
-                .map(Game::advanceRoom)
-                .map(room -> room.getPuzzles().stream().findFirst().orElse(null))
+        return Optional.ofNullable(user)
+                .map(User::getCurrentRoom)
+                .filter(room -> !room.getPuzzles().isEmpty())
+                .map(room -> room.getPuzzles().get(0))
                 .orElse(null);
     }
 
@@ -45,6 +47,66 @@ public final class EscapeGame {
         if (game != null) {
             game.start();
         }
+    }
+
+    public void newSinglePlayerSession(String username, Difficulty difficulty) {
+        if (username == null || username.isBlank()) {
+            throw new IllegalArgumentException("Username is required");
+        }
+
+        Difficulty resolvedDifficulty = difficulty != null ? difficulty : Difficulty.MEDIUM;
+        this.user = new User(username);
+        this.user.setDifficulty(resolvedDifficulty);
+
+        this.game = GameFactory.createDefaultThreeRoomGame(resolvedDifficulty);
+        game.start();
+
+        for (Room room : game.getRooms()) {
+            room.setHintLimit(resolvedDifficulty.getHintAllowance());
+        }
+
+        List<Room> rooms = game.getRooms();
+        if (!rooms.isEmpty()) {
+            user.moveTo(rooms.get(0));
+        }
+    }
+
+    public boolean attemptCurrentPuzzle(Object input) {
+        if (user == null || game == null) {
+            return false;
+        }
+
+        Room currentRoom = user.getCurrentRoom();
+        if (currentRoom == null || currentRoom.getPuzzles().isEmpty()) {
+            return false;
+        }
+
+        Puzzle puzzle = currentRoom.getPuzzles().get(0);
+        boolean success = puzzle.attempt(input);
+        if (!success) {
+            return false;
+        }
+
+        Progress progress = user.getOrCreateProgress(currentRoom.getId());
+        progress.setPuzzleSolved(puzzle.getId(), true);
+
+        Item providedKey = puzzle.getKeyProvided();
+        if (providedKey != null) {
+            user.pickUp(providedKey);
+            Room nextRoom = findNextRoom(currentRoom);
+            if (nextRoom != null) {
+                nextRoom.unlock(providedKey);
+            }
+        }
+
+        if (currentRoom.isCleared()) {
+            Room nextRoom = game.advanceRoom();
+            if (nextRoom != null && nextRoom != currentRoom) {
+                user.moveTo(nextRoom);
+            }
+        }
+
+        return true;
     }
 
     public void resetProgress() {
@@ -56,5 +118,17 @@ public final class EscapeGame {
 
     public void bootstrapFromResources() {
         throw new UnsupportedOperationException("Persistence bootstrapping not implemented yet.");
+    }
+
+    private Room findNextRoom(Room currentRoom) {
+        if (game == null || currentRoom == null) {
+            return null;
+        }
+        List<Room> rooms = game.getRooms();
+        int index = rooms.indexOf(currentRoom);
+        if (index >= 0 && index + 1 < rooms.size()) {
+            return rooms.get(index + 1);
+        }
+        return null;
     }
 }

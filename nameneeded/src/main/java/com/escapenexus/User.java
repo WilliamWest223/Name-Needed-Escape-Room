@@ -16,6 +16,10 @@ public class User {
     private final Map<UUID, Progress> progressByRoomId = new HashMap<>();
     private Difficulty difficulty = Difficulty.MEDIUM;
 
+    public User(String username) {
+        this(username, "");
+    }
+
     public User(String username, String email) {
         this(null, username, email);
     }
@@ -98,7 +102,27 @@ public class User {
     }
 
     public String requestHint(Room room) {
-        return "Hints are not yet implemented.";
+        if (room == null || room.getPuzzles().isEmpty()) {
+            return "No hints available.";
+        }
+
+        Progress progress = getOrCreateProgress(room.getId());
+        Puzzle puzzle = room.getPuzzles().get(0);
+        UUID puzzleId = puzzle.getId();
+
+        if (progress.getCurrentPuzzleId() == null) {
+            progress.setCurrentPuzzleId(puzzleId);
+        }
+
+        int usedHints = progress.getHintsUsed(puzzleId);
+        int hintLimit = Math.max(0, room.getHintLimit());
+        int remaining = hintLimit - usedHints;
+        if (remaining <= 0) {
+            return "No hints left.";
+        }
+
+        progress.setHintCount(puzzleId, usedHints + 1);
+        return puzzle.giveHint();
     }
 
     public void clearProgress() {
