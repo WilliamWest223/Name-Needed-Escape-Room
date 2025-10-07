@@ -43,7 +43,7 @@
                 <configuration>
                     <jlinkImageName>hellofx</jlinkImageName>
                     <launcher>launcher</launcher>
-                    <mainClass>hellofx/org.openjfx.hellofx.App</mainClass>
+                    <mainClass>com.escaperoom/com.escaperoom.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>

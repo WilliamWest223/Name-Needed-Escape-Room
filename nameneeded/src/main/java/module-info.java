@@ -4,4 +4,5 @@ module com.escaperoom {
 
     opens com.escaperoom to javafx.fxml;
     exports com.escaperoom;
+    exports com.escapenexus;
 }
