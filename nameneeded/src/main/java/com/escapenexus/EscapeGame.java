@@ -1,7 +1,9 @@
 package com.escapenexus;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public final class EscapeGame {
@@ -128,6 +130,20 @@ public final class EscapeGame {
             }
         } catch (IOException exception) {
             throw new IllegalStateException("Failed to bootstrap game data", exception);
+        }
+    }
+
+
+    public void saveGame(Path file) {
+        if (game == null) {
+            throw new IllegalStateException("No game available to save");
+        }
+        Objects.requireNonNull(file, "file");
+        DataWriter writer = new DataWriter();
+        try {
+            writer.writeGames(file, List.of(game));
+        } catch (IOException exception) {
+            throw new IllegalStateException("Failed to save game data", exception);
         }
     }
 
