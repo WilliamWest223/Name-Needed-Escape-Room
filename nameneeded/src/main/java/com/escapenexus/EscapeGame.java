@@ -1,5 +1,6 @@
 package com.escapenexus;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -117,7 +118,17 @@ public final class EscapeGame {
     }
 
     public void bootstrapFromResources() {
-        throw new UnsupportedOperationException("Persistence bootstrapping not implemented yet.");
+        DataLoader loader = new DataLoader();
+        try {
+            List<Game> games = loader.loadGamesFromResource();
+            if (!games.isEmpty()) {
+                this.game = games.get(0);
+            } else {
+                this.game = GameFactory.createDefaultThreeRoomGame(Difficulty.MEDIUM);
+            }
+        } catch (IOException exception) {
+            throw new IllegalStateException("Failed to bootstrap game data", exception);
+        }
     }
 
     private Room findNextRoom(Room currentRoom) {

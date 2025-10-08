@@ -1,0 +1,96 @@
+﻿{
+  "games": [
+    {
+      "id": "game-singularity-run",
+      "title": "Escape Nexus: Singularity Run",
+      "description": "Race through the facility before the singularity ignites.",
+      "difficulty": "MEDIUM",
+      "timeLimitMinutes": 30,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "item-key-cryo-to-hall",
+          "name": "Cryo Bay Access Key",
+          "description": "Unlocks the transit hall mag-lock.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "item-key-hall-to-core",
+          "name": "Core Vault Key",
+          "description": "Unlocks the reactor core vault.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "room-cryo-intake",
+          "name": "Cryo Intake",
+          "description": "Wake up and stabilize the cryo systems before sprinting out.",
+          "locked": false,
+          "hintLimit": 2,
+          "puzzles": [
+            {
+              "id": "puzzle-reboot-sequence",
+              "title": "Reboot Sequence",
+              "description": "Restart the cryo control cluster without tripping failsafes.",
+              "hints": [
+                "Initiate diagnostics before rebooting anything.",
+                "Power cycles must follow the blue-green-orange order.",
+                "Pair the thermal reset with the pressure equalizer toggle.",
+                "The last step is a manual override on the console."
+              ],
+              "keyProvided": "item-key-cryo-to-hall"
+            }
+          ]
+        },
+        {
+          "id": "room-transit-hall",
+          "name": "Transit Hall",
+          "description": "Navigate the evacuated hall and bypass the mag-lock pattern wall.",
+          "locked": true,
+          "keyRequired": "item-key-cryo-to-hall",
+          "hintLimit": 1,
+          "puzzles": [
+            {
+              "id": "puzzle-mag-lock-pattern",
+              "title": "Mag-Lock Pattern",
+              "description": "Decode the alternating magnetic locks before power surges.",
+              "hints": [
+                "Observe the pulsing lights: they echo the safe pattern.",
+                "Odd-numbered locks cycle clockwise.",
+                "Reset any lock that pulses red twice.",
+                "The final sequence is blue, blue, green, amber."
+              ],
+              "keyProvided": "item-key-hall-to-core"
+            }
+          ]
+        },
+        {
+          "id": "room-core-vault",
+          "name": "Core Vault",
+          "description": "Align the reactor and vent energy before the singularity stabilizes.",
+          "locked": true,
+          "keyRequired": "item-key-hall-to-core",
+          "hintLimit": 1,
+          "puzzles": [
+            {
+              "id": "puzzle-reactor-alignment",
+              "title": "Reactor Alignment",
+              "description": "Synchronize the quantum regulators and field dampers.",
+              "hints": [
+                "Lock the primary coolant rings first.",
+                "Align the regulator phases to match the holographic display.",
+                "Stabilize the output by venting the upper conduits.",
+                "Seal the chamber by engaging the twin dampers simultaneously."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
