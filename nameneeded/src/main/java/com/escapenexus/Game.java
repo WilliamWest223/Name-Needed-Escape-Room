@@ -32,6 +32,11 @@ public class Game {
         this.timeLimit = Duration.ofMinutes(timeLimitMinutes);
     }
 
+    public Game(String gameId, List<Room> safeRooms, Duration timeLimit2) {
+        this.id = null;
+        //TODO Auto-generated constructor stub
+    }
+
     public UUID getId() {
         return id;
     }
@@ -171,5 +176,15 @@ public class Game {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public boolean advanceIfSolved() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'advanceIfSolved'");
+    }
+
+    public Room getCurrentRoom() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCurrentRoom'");
     }
 }

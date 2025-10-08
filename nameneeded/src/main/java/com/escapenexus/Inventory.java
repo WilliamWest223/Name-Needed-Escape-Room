@@ -47,4 +47,9 @@ public class Inventory {
     public void clear() {
         items.clear();
     }
+
+    public void addItem(Item item) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addItem'");
+    }
 }
