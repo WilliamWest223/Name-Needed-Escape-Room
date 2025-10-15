@@ -1,0 +1,22 @@
+QUESTIONS:
+    Cryo Date Desync — “CRYO POD ERROR: Wake date desync. Enter the correct star date.”
+    Airlock Override — “AIRLOCK OVERRIDE: Enter the next 3 symbols in the sequence: < > < / > < / < > < / > < ...?”
+    Reactor PIN — “REACTOR PIN required. Hint: PRIME shields.”
+    Navigation Constellation Cipher — “NAV LOCK: Enter the 4-letter callsign.”
+    Oxygen Mix Ratio — “LIFE SUPPORT: Set O2:N2 ratio to optimal at 1 atm (100 kPa).”
+    Captain’s Log Acrostic — “CAPTAIN AUTH: Type the authorization keyword hidden in the logs.”
+    Supply Locker Frequency — “LOCKER 7: Tune to the standard SOL distress frequency.”
+    Gravity Ring Code — “GRAV RING MAINT: Fill in the missing segment labels: 1, 1, 2, 3, 5, __, __.”
+    Drone Bay Color Order — “DRONE BAY: Set beacon colors for drone IDs 1–2–3 in launch order.”
+    Escape Coordinates — “ESCAPE SHUTTLE: Enter the 4-digit coordinate key by reading the grid corners clockwise from A1.”
+ANSWERS:
+2179-03-14
+/ < >
+357
+NOVA
+21:79 (O2:N2) (Have the conversion rate hidden somewhere)
+AURORA
+121.5
+8, 13
+Green, Red, Blue (for IDs 1, 2, 3)
+9274

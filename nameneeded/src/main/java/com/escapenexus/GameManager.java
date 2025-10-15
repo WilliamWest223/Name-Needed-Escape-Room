@@ -53,4 +53,24 @@ public class GameManager {
     public void endGame(String gameId) {
         games.remove(gameId);
     }
+
+    public Object startNewGame() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'startNewGame'");
+    }
+
+    public Object loadGame() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'loadGame'");
+    }
+
+    public Object showInstructions() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'showInstructions'");
+    }
+
+    public void exitGame() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'exitGame'");
+    }
 }
