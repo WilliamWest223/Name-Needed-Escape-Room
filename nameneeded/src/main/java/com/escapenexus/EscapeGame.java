@@ -65,7 +65,7 @@ public final class EscapeGame {
         game.start();
 
         for (Room room : game.getRooms()) {
-            room.setHintLimit(resolvedDifficulty.getHintAllowance());
+            room.setHintLimit(resolvedDifficulty.getHintLimit());
         }
 
         List<Room> rooms = game.getRooms();

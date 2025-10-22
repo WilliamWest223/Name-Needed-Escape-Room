@@ -48,15 +48,15 @@ public final class GameFactory {
         );
         cryoIntake.setLocked(false);
 
-        Puzzle rebootSequence = new Puzzle(
+        LightPatternPuzzle rebootSequence = new LightPatternPuzzle(
                 UUID.fromString("bbbbbbb1-bbbb-bbbb-bbbb-bbbbbbbbbbb1"),
                 "Reboot Sequence",
-                "Restart the cryo control cluster without tripping failsafes."
+                "Replay each flashing sequence on the cryo console.",
+                System.nanoTime()
         );
-        rebootSequence.addHint("Initiate diagnostics before rebooting anything.");
-        rebootSequence.addHint("Power cycles must follow the blue-green-orange order.");
-        rebootSequence.addHint("Pair the thermal reset with the pressure equalizer toggle.");
-        rebootSequence.addHint("The last step is a manual override on the console.");
+        rebootSequence.addHint("Watch carefully - each new flash extends the full sequence.");
+        rebootSequence.addHint("Group colors in pairs or triples to memorize faster.");
+        rebootSequence.addHint("Say each color out loud as you replay it.");
         rebootSequence.setKeyProvided(keyCryoToHall);
         cryoIntake.addPuzzle(rebootSequence);
 
@@ -68,17 +68,17 @@ public final class GameFactory {
         transitHall.setLocked(true);
         transitHall.setKeyRequired(keyCryoToHall);
 
-        Puzzle magLockPattern = new Puzzle(
+        RiddlePuzzle magLockRiddle = new RiddlePuzzle(
                 UUID.fromString("bbbbbbb2-bbbb-bbbb-bbbb-bbbbbbbbbbb2"),
-                "Mag-Lock Pattern",
-                "Decode the alternating magnetic locks before power surges."
+                "Mag-Lock Riddle",
+                "I have a bed but do not sleep, a mouth but do not speak, and a foot but do not walk. What am I?",
+                java.util.List.of("river")
         );
-        magLockPattern.addHint("Observe the pulsing lights: they echo the safe pattern.");
-        magLockPattern.addHint("Odd-numbered locks cycle clockwise.");
-        magLockPattern.addHint("Reset any lock that pulses red twice.");
-        magLockPattern.addHint("The final sequence is blue, blue, green, amber.");
-        magLockPattern.setKeyProvided(keyHallToCore);
-        transitHall.addPuzzle(magLockPattern);
+        magLockRiddle.addHint("It moves yet stays in its place.");
+        magLockRiddle.addHint("Its mouth isn't for speaking.");
+        magLockRiddle.addHint("You can follow its banks.");
+        magLockRiddle.setKeyProvided(keyHallToCore);
+        transitHall.addPuzzle(magLockRiddle);
 
         Room coreVault = new Room(
                 UUID.fromString("aaaaaaa3-aaaa-aaaa-aaaa-aaaaaaaaaaa3"),
@@ -88,20 +88,25 @@ public final class GameFactory {
         coreVault.setLocked(true);
         coreVault.setKeyRequired(keyHallToCore);
 
-        Puzzle reactorAlignment = new Puzzle(
+        MathPuzzle reactorAlignment = new MathPuzzle(
                 UUID.fromString("bbbbbbb3-bbbb-bbbb-bbbb-bbbbbbbbbbb3"),
-                "Reactor Alignment",
-                "Synchronize the quantum regulators and field dampers."
+                "Reactor Calibration",
+                "Two calibration panels display 5 and 7. Enter their sum to confirm alignment.",
+                12.0,
+                0.0
         );
-        reactorAlignment.addHint("Lock the primary coolant rings first.");
-        reactorAlignment.addHint("Align the regulator phases to match the holographic display.");
-        reactorAlignment.addHint("Stabilize the output by venting the upper conduits.");
-        reactorAlignment.addHint("Seal the chamber by engaging the twin dampers simultaneously.");
+        reactorAlignment.addHint("Add the two numbers you see.");
+        reactorAlignment.addHint("It's simple arithmetic, not degrees or timing.");
+        reactorAlignment.addHint("Five plus seven equals...?");
         coreVault.addPuzzle(reactorAlignment);
 
         game.addRoom(cryoIntake);
         game.addRoom(transitHall);
         game.addRoom(coreVault);
+
+        for (Room room : game.getRooms()) {
+            room.setHintLimit(resolvedDifficulty.getHintLimit());
+        }
 
         return game;
     }

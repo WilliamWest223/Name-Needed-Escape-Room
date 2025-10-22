@@ -5,13 +5,13 @@ public enum Difficulty {
     MEDIUM(2),
     HARD(1);
 
-    private final int hintAllowance;
+    private final int hintLimit;
 
-    Difficulty(int hintAllowance) {
-        this.hintAllowance = hintAllowance;
+    Difficulty(int hintLimit) {
+        this.hintLimit = hintLimit;
     }
 
-    public int getHintAllowance() {
-        return hintAllowance;
+    public int getHintLimit() {
+        return hintLimit;
     }
 }

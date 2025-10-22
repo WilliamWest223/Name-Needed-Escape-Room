@@ -71,11 +71,17 @@ public class Puzzle {
         return true;
     }
 
+    private int __hintIndex = 0;
+
     public String giveHint() {
-        if (hints.isEmpty()) {
+        List<String> resolvedHints = getHints();
+        if (resolvedHints == null || resolvedHints.isEmpty()) {
             return "No hints available.";
         }
-        return hints.get(0);
+        if (__hintIndex >= resolvedHints.size()) {
+            return "No hints available.";
+        }
+        return resolvedHints.get(__hintIndex++);
     }
 
     public void reset() {
