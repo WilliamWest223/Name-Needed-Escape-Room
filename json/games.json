@@ -1,5 +1,8 @@
 [
     {
+      "java.configuration.updateBuildConfiguration": "interactive"
+    },
+    {
       "id": "player-david",
       "username": "David",
       "currentRoom": "room-antechamber",
