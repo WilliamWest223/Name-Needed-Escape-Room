@@ -91,16 +91,21 @@ public class GameManager {
     // ===== Facade methods =====
 
     /** Start a new default game and store as current. */
-    public Object startNewGame() {
-        Difficulty difficulty = Difficulty.MEDIUM;
-        Game game = GameFactory.createDefaultThreeRoomGame(difficulty);
+    public Game startNewGame() {
+        return startNewGame(Difficulty.MEDIUM);
+    }
+
+    /** Start a new game with the given difficulty. */
+    public Game startNewGame(Difficulty difficulty) {
+        Difficulty d = (difficulty != null) ? difficulty : Difficulty.MEDIUM;
+        Game game = GameFactory.createDefaultThreeRoomGame(d);
         games.put(game.getId().toString(), game);
         this.currentGame = game;
         return game;
     }
 
     /** Load a game from the default save file, or fallback to resources/default. */
-    public Object loadGame() {
+    public Game loadGame() {
         // Try default save file first
         if (Files.exists(DEFAULT_SAVE_PATH)) {
             try {
@@ -134,6 +139,23 @@ public class GameManager {
         return game;
     }
 
+    /** Load a game from the specified file path. */
+    public Game loadGame(Path file) {
+        Objects.requireNonNull(file, "file");
+        try {
+            List<Game> loaded = loader.loadGames(file);
+            if (loaded.isEmpty()) {
+                throw new IllegalStateException("No games found in save file: " + file);
+            }
+            Game game = loaded.get(0);
+            games.put(game.getId().toString(), game);
+            this.currentGame = game;
+            return game;
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to load game from: " + file, e);
+        }
+    }
+
     /** Save the current game to the default save file. */
     public void saveCurrentGame() {
         if (currentGame == null) {
@@ -143,6 +165,19 @@ public class GameManager {
             writer.writeGame(DEFAULT_SAVE_PATH, currentGame);
         } catch (IOException e) {
             throw new IllegalStateException("Failed to save game", e);
+        }
+    }
+
+    /** Save the current game to the specified file. */
+    public void saveCurrentGame(Path file) {
+        if (currentGame == null) {
+            throw new IllegalStateException("No current game to save");
+        }
+        Objects.requireNonNull(file, "file");
+        try {
+            writer.writeGame(file, currentGame);
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to save game to: " + file, e);
         }
     }
 
