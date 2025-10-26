@@ -13,7 +13,8 @@ public final class TerminalDriver {
 
     public static void main(String[] args) {
         Difficulty difficulty = promptDifficulty();
-        Game game = GameFactory.createDefaultThreeRoomGame(difficulty);
+        GameManager manager = new GameManager();
+        Game game = manager.startNewGame(difficulty);
         User user = new User("player");
         user.setDifficulty(difficulty);
         for (Room room : game.getRooms()) {
@@ -38,7 +39,7 @@ public final class TerminalDriver {
             if (puzzle instanceof LightPatternPuzzle) {
                 System.out.print("[3] show-seq  ");
             }
-            System.out.println("[0] quit");
+            System.out.println("[4] save  [5] load  [0] quit");
             System.out.print("> ");
 
             String choice = INPUT.nextLine().trim();
@@ -46,6 +47,8 @@ public final class TerminalDriver {
                 case "1" -> handleHint(room, puzzle);
                 case "2" -> handleAttempt(game, user, room, puzzle);
                 case "3" -> handleSequence(puzzle);
+                case "4" -> handleSave(manager);
+                case "5" -> game = handleLoad(manager, difficulty, user, game);
                 case "0" -> {
                     return;
                 }
@@ -119,6 +122,49 @@ public final class TerminalDriver {
             System.out.println("Sequence: " + lightPattern.getCurrentSequence());
         } else {
             System.out.println("No sequence to show.");
+        }
+    }
+
+    private static void handleSave(GameManager manager) {
+        System.out.println("Save to file (leave blank for default saves/current-game.json):");
+        System.out.print("> ");
+        String path = INPUT.nextLine().trim();
+        try {
+            if (path.isEmpty()) {
+                manager.saveCurrentGame();
+            } else {
+                java.nio.file.Path file = java.nio.file.Paths.get(path);
+                manager.saveCurrentGame(file);
+            }
+            System.out.println("-> saved game");
+        } catch (Exception e) {
+            System.out.println("Save failed: " + e.getMessage());
+        }
+    }
+
+    private static Game handleLoad(GameManager manager, Difficulty difficulty, User user, Game current) {
+        System.out.println("Load from file (leave blank for default saves/current-game.json):");
+        System.out.print("> ");
+        String path = INPUT.nextLine().trim();
+        try {
+            Game game;
+            if (path.isEmpty()) {
+                game = manager.loadGame();
+            } else {
+                java.nio.file.Path file = java.nio.file.Paths.get(path);
+                game = manager.loadGame(file);
+            }
+            for (Room r : game.getRooms()) {
+                r.setHintLimit(difficulty.getHintLimit());
+            }
+            if (!game.getRooms().isEmpty()) {
+                user.moveTo(game.getRooms().get(0));
+            }
+            System.out.println("-> loaded game");
+            return game;
+        } catch (Exception e) {
+            System.out.println("Load failed: " + e.getMessage());
+            return current;
         }
     }
 
