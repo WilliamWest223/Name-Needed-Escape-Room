@@ -10,6 +10,7 @@ public final class UserList {
 
     private static UserList instance;
     private final List<User> users = new ArrayList<>();
+    private final UserStorage storage = new UserStorage();
 
     private UserList() {
     }
@@ -50,6 +51,23 @@ public final class UserList {
                 .findFirst();
     }
 
+    public void load() {
+        users.clear();
+        users.addAll(storage.loadUsers());
+    }
+
     public void save() {
+        storage.saveUsers(users);
+    }
+
+    public void addOrReplace(User user) {
+        if (user == null) return;
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getId().equals(user.getId())) {
+                users.set(i, user);
+                return;
+            }
+        }
+        users.add(user);
     }
 }
