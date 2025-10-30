@@ -1,4 +1,4 @@
-﻿package com.escapenexus;
+package com.escapenexus;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

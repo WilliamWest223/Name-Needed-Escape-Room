@@ -39,6 +39,6 @@ public class MathPuzzle extends Puzzle {
         if (!getHints().isEmpty()) {
             return super.giveHint();
         }
-        return "Use the least common multiple of rotation periods.";
+        return "Combine the displayed values exactly as the prompt describes.";
     }
 }

@@ -40,6 +40,6 @@ public class RiddlePuzzle extends Puzzle {
         if (!getHints().isEmpty()) {
             return super.giveHint();
         }
-        return "One word that repeats what it ‘hears’.";
+        return "Picture something with a bed, a mouth, and a foot that never leaves its place.";
     }
 }
