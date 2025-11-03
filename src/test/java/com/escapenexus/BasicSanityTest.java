@@ -1,4 +1,4 @@
-package java.com.escapenexus;
+package com.escapenexus;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +11,8 @@ public class BasicSanityTest {
     }
 
     @Test
-    public void trueIsTrue() {
-        assertTrue(true, "true should be true");
+    public void alwaysTrue() {
+        assertTrue(true);
     }
 }
+
