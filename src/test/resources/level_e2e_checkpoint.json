@@ -1,0 +1,57 @@
+{
+  "games": [
+    {
+      "id": "e2e-checkpoint",
+      "title": "E2E Checkpoint",
+      "description": "Includes optional checkpointing items.",
+      "difficulty": "EASY",
+      "timeLimitMinutes": 22,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "checkpoint-key",
+          "name": "Checkpoint Key",
+          "description": "Unlocks the checkpoint room.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "checkpoint-token",
+          "name": "Checkpoint Token",
+          "description": "Represents a saved state token.",
+          "portable": true,
+          "key": false,
+          "state": "USED"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "checkpoint-room-start",
+          "name": "Checkpoint Start",
+          "description": "Contains the checkpoint token.",
+          "locked": false,
+          "items": [
+            "checkpoint-token"
+          ],
+          "puzzles": [
+            {
+              "id": "checkpoint-puzzle",
+              "title": "Checkpoint Gate",
+              "description": "Provides the checkpoint key.",
+              "keyProvided": "checkpoint-key"
+            }
+          ]
+        },
+        {
+          "id": "checkpoint-room-locked",
+          "name": "Checkpoint Vault",
+          "description": "Requires checkpoint key.",
+          "locked": true,
+          "keyRequired": "checkpoint-key",
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

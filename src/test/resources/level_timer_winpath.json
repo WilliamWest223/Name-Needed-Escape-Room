@@ -1,0 +1,46 @@
+{
+  "games": [
+    {
+      "id": "timer-winpath",
+      "title": "Timer Win Path",
+      "description": "Multiple rooms with time consideration.",
+      "difficulty": "MEDIUM",
+      "timeLimitMinutes": 12,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "timer-key-alpha",
+          "name": "Timer Key Alpha",
+          "description": "Advances to the next chamber.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "timer-room-start",
+          "name": "Timer Start",
+          "description": "Initial chamber.",
+          "locked": false,
+          "puzzles": [
+            {
+              "id": "timer-puzzle-alpha",
+              "title": "Timer Puzzle Alpha",
+              "description": "Unlocks the path ahead.",
+              "keyProvided": "timer-key-alpha"
+            }
+          ]
+        },
+        {
+          "id": "timer-room-end",
+          "name": "Timer Vault",
+          "description": "Final chamber.",
+          "locked": true,
+          "keyRequired": "timer-key-alpha",
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

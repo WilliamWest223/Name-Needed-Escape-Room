@@ -1,0 +1,22 @@
+{
+  "games": [
+    {
+      "id": "timer-basic",
+      "title": "Timer Basic",
+      "description": "Short timer scenario.",
+      "difficulty": "EASY",
+      "timeLimitMinutes": 5,
+      "maxPlayers": 1,
+      "items": [],
+      "rooms": [
+        {
+          "id": "timer-room-a",
+          "name": "Timer Room A",
+          "description": "Starting room.",
+          "locked": false,
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

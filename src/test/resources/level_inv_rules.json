@@ -1,0 +1,43 @@
+{
+  "games": [
+    {
+      "id": "inv-rules",
+      "title": "Inventory Rules",
+      "description": "Inventory capacity and stacking scenarios.",
+      "difficulty": "EASY",
+      "timeLimitMinutes": 30,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "inv-key-portable",
+          "name": "Portable Key",
+          "description": "Standard portable key.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "inv-key-fixed",
+          "name": "Fixed Key",
+          "description": "Too heavy to carry.",
+          "portable": false,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "inv-room-a",
+          "name": "Inventory Lab",
+          "description": "Contains multiple items.",
+          "locked": false,
+          "items": [
+            "inv-key-portable",
+            "inv-key-fixed"
+          ],
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

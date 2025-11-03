@@ -1,0 +1,43 @@
+{
+  "games": [
+    {
+      "id": "inv-use-matrix",
+      "title": "Inventory Use Matrix",
+      "description": "Item to target compatibility table.",
+      "difficulty": "MEDIUM",
+      "timeLimitMinutes": 25,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "matrix-key-door",
+          "name": "Door Key",
+          "description": "Unlocks the security door.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "matrix-tool-panel",
+          "name": "Panel Tool",
+          "description": "Adjusts control panels.",
+          "portable": true,
+          "key": false,
+          "state": "USED"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "matrix-room-ops",
+          "name": "Operations Hub",
+          "description": "Hosts key interaction targets.",
+          "locked": false,
+          "items": [
+            "matrix-key-door",
+            "matrix-tool-panel"
+          ],
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

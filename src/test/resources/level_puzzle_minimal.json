@@ -1,0 +1,46 @@
+{
+  "games": [
+    {
+      "id": "game-minimal",
+      "title": "Minimal Puzzle Level",
+      "description": "Single room focusing on puzzle unlock flow.",
+      "difficulty": "MEDIUM",
+      "timeLimitMinutes": 15,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "item-access-key",
+          "name": "Access Key",
+          "description": "Unlocks the next chamber.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "room-minimal",
+          "name": "Puzzle Chamber",
+          "description": "Test chamber with a single light puzzle.",
+          "locked": false,
+          "hintLimit": 2,
+          "keyRequired": "item-access-key",
+          "items": [
+            "item-access-key"
+          ],
+          "puzzles": [
+            {
+              "id": "puzzle-light",
+              "title": "Memory Lights",
+              "description": "Repeat the flashed sequence to retrieve the key.",
+              "hints": [
+                "Watch every flash carefully."
+              ],
+              "keyProvided": "item-access-key"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

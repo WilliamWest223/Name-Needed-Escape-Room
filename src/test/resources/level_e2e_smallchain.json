@@ -1,0 +1,69 @@
+{
+  "games": [
+    {
+      "id": "e2e-small",
+      "title": "E2E Small Chain",
+      "description": "Three rooms with sequential keys.",
+      "difficulty": "MEDIUM",
+      "timeLimitMinutes": 18,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "e2e-key-1",
+          "name": "Key One",
+          "description": "Unlocks room two.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "e2e-key-2",
+          "name": "Key Two",
+          "description": "Unlocks room three.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "e2e-room-1",
+          "name": "Room One",
+          "description": "Introduces the journey.",
+          "locked": false,
+          "puzzles": [
+            {
+              "id": "e2e-puzzle-1",
+              "title": "Puzzle One",
+              "description": "Rewards key one.",
+              "keyProvided": "e2e-key-1"
+            }
+          ]
+        },
+        {
+          "id": "e2e-room-2",
+          "name": "Room Two",
+          "description": "Requires key one.",
+          "locked": true,
+          "keyRequired": "e2e-key-1",
+          "puzzles": [
+            {
+              "id": "e2e-puzzle-2",
+              "title": "Puzzle Two",
+              "description": "Rewards key two.",
+              "keyProvided": "e2e-key-2"
+            }
+          ]
+        },
+        {
+          "id": "e2e-room-3",
+          "name": "Room Three",
+          "description": "Final chamber.",
+          "locked": true,
+          "keyRequired": "e2e-key-2",
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

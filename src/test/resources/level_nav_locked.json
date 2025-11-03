@@ -1,0 +1,31 @@
+{
+  "games": [
+    {
+      "id": "nav-locked",
+      "title": "Navigation Locked",
+      "description": "Highlight locked traversal without matching keys.",
+      "difficulty": "MEDIUM",
+      "timeLimitMinutes": 15,
+      "maxPlayers": 1,
+      "items": [],
+      "rooms": [
+        {
+          "id": "nav-locked-a",
+          "name": "Entryway",
+          "description": "Initial room with no puzzles.",
+          "locked": false,
+          "hintLimit": 0,
+          "puzzles": []
+        },
+        {
+          "id": "nav-locked-b",
+          "name": "Sealed Chamber",
+          "description": "Permanently sealed without a key.",
+          "locked": true,
+          "hintLimit": 0,
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

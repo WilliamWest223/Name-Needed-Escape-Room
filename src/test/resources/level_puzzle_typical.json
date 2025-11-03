@@ -1,0 +1,81 @@
+{
+  "games": [
+    {
+      "id": "game-typical",
+      "title": "Typical Puzzle Progression",
+      "description": "Multiple puzzles with chained key progression.",
+      "difficulty": "HARD",
+      "timeLimitMinutes": 25,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "item-key-alpha",
+          "name": "Alpha Keycard",
+          "description": "Unlocks the security hall.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "item-key-beta",
+          "name": "Beta Keycard",
+          "description": "Opens the reactor vault.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "room-alpha",
+          "name": "Cryo Intake",
+          "description": "Stabilize the cryo systems.",
+          "locked": false,
+          "hintLimit": 3,
+          "items": [
+            "item-key-alpha"
+          ],
+          "puzzles": [
+            {
+              "id": "puzzle-alpha-light",
+              "title": "Reboot Pattern",
+              "description": "Replay the sequence to reboot the console.",
+              "hints": [
+                "Chunk the colors you see."
+              ],
+              "keyProvided": "item-key-alpha"
+            },
+            {
+              "id": "puzzle-alpha-riddle",
+              "title": "Cryo Override Riddle",
+              "description": "Answer the prompt to unlock beta access.",
+              "hints": [
+                "It flows but never walks."
+              ],
+              "keyProvided": "item-key-beta"
+            }
+          ]
+        },
+        {
+          "id": "room-beta",
+          "name": "Transit Hall",
+          "description": "Bypass the magnetic lock.",
+          "locked": true,
+          "hintLimit": 1,
+          "keyRequired": "item-key-alpha",
+          "items": [],
+          "puzzles": [
+            {
+              "id": "puzzle-beta-math",
+              "title": "Alignment Math",
+              "description": "Solve the equation to stabilize the hall.",
+              "hints": [
+                "Add the displayed values."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "games": [
+    {
+      "id": "nav-minimal",
+      "title": "Navigation Minimal",
+      "description": "Two rooms with a single key gate.",
+      "difficulty": "EASY",
+      "timeLimitMinutes": 20,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "nav-key-alpha",
+          "name": "Alpha Key",
+          "description": "Unlocks the transit corridor.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "nav-room-start",
+          "name": "Start Atrium",
+          "description": "Where navigation begins.",
+          "locked": false,
+          "hintLimit": 1,
+          "puzzles": [
+            {
+              "id": "nav-puzzle-start",
+              "title": "Lever Sequence",
+              "description": "Flip the sequence to earn the key.",
+              "hints": [
+                "Toggle levers top to bottom."
+              ],
+              "keyProvided": "nav-key-alpha"
+            }
+          ]
+        },
+        {
+          "id": "nav-room-target",
+          "name": "Transit Corridor",
+          "description": "Requires the alpha key to enter.",
+          "locked": true,
+          "keyRequired": "nav-key-alpha",
+          "hintLimit": 0,
+          "puzzles": []
+        }
+      ]
+    }
+  ]
+}

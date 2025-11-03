@@ -1,0 +1,85 @@
+{
+  "games": [
+    {
+      "id": "nav-cycle",
+      "title": "Navigation Cycle",
+      "description": "Three rooms referencing each other to form a cycle.",
+      "difficulty": "HARD",
+      "timeLimitMinutes": 40,
+      "maxPlayers": 1,
+      "items": [
+        {
+          "id": "cycle-key-a",
+          "name": "Cycle Key A",
+          "description": "Unlocks room B.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "cycle-key-b",
+          "name": "Cycle Key B",
+          "description": "Unlocks room C.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        },
+        {
+          "id": "cycle-key-c",
+          "name": "Cycle Key C",
+          "description": "Unlocks room A.",
+          "portable": true,
+          "key": true,
+          "state": "NEW"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "cycle-room-a",
+          "name": "Cycle Room A",
+          "description": "Begins the loop.",
+          "locked": false,
+          "keyRequired": "cycle-key-c",
+          "puzzles": [
+            {
+              "id": "cycle-puzzle-a",
+              "title": "Cycle Puzzle A",
+              "description": "Provides key A.",
+              "keyProvided": "cycle-key-a"
+            }
+          ]
+        },
+        {
+          "id": "cycle-room-b",
+          "name": "Cycle Room B",
+          "description": "Second loop room.",
+          "locked": true,
+          "keyRequired": "cycle-key-a",
+          "puzzles": [
+            {
+              "id": "cycle-puzzle-b",
+              "title": "Cycle Puzzle B",
+              "description": "Provides key B.",
+              "keyProvided": "cycle-key-b"
+            }
+          ]
+        },
+        {
+          "id": "cycle-room-c",
+          "name": "Cycle Room C",
+          "description": "Completes the loop.",
+          "locked": true,
+          "keyRequired": "cycle-key-b",
+          "puzzles": [
+            {
+              "id": "cycle-puzzle-c",
+              "title": "Cycle Puzzle C",
+              "description": "Provides key C.",
+              "keyProvided": "cycle-key-c"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

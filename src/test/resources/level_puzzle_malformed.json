@@ -1,0 +1,10 @@
+{
+  "games": [
+    {
+      "id": "game-broken",
+      "title": "Malformed Level",
+      "description": "This payload is intentionally truncated to trigger a parse failure.",
+      "rooms": [
+        {
+          "id": "room-broken",
+          "name": "Glitched Room"
