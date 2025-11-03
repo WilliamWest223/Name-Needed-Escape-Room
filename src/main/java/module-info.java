@@ -2,8 +2,7 @@ module com.escaperoom {
     requires javafx.controls;
     requires javafx.fxml;
     requires json.simple;
-    requires junit;
-    opens com.escaperoom to javafx.fxml;
+    opens com.escaperoom to javafx.fxml, org.junit.platform.commons;
     exports com.escaperoom;
     exports com.escapenexus;
 }
